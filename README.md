@@ -46,7 +46,7 @@ Neo4j is a transactional, open-source graph database. A graph database manages d
 
 ### Requirements
 
-* PHP 5.5+
+* PHP >= 5.5, < 8.0
 * A Neo4j database (minimum version 2.1.6)
 
 ### Getting Help

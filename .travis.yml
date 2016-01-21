@@ -11,7 +11,6 @@ env:
   - NEO_VERSION="2.3.0"
   - NEO_VERSION="2.3.1"
 
-
 before_install:
     - wget dist.neo4j.org/neo4j-enterprise-$NEO_VERSION-unix.tar.gz > null
     - tar -xzf neo4j-enterprise-$NEO_VERSION-unix.tar.gz > null
@@ -19,7 +18,7 @@ before_install:
     - composer self-update
 
 before_script:
-    - composer install --prefer-source --no-interaction
+    - travis_retry composer install --prefer-source --no-interaction
     - mv tests/database_settings.yml.dist tests/database_settings.yml
 
 script:

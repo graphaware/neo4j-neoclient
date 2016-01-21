@@ -1,8 +1,8 @@
 {
-    "name": "graphaware/neo4j-php-client",
-    "type": "library",
-    "description": "Neo4j-PHP-Client is the most advanced PHP Client for Neo4j",
-    "keywords": [
+    "name":         "graphaware/neo4j-php-client",
+    "type":         "library",
+    "description":  "Neo4j-PHP-Client is the most advanced PHP Client for Neo4j",
+    "keywords":     [
         "graph",
         "neo4j",
         "cluster",
@@ -11,32 +11,31 @@
         "bolt",
         "binary"
     ],
-    "homepage": "http://graphaware.com",
-    "license": "MIT",
-    "authors": [
+    "homepage":     "http://graphaware.com",
+    "license":      "MIT",
+    "authors":      [
         {
-            "name": "Christophe Willemsen",
+            "name":  "Christophe Willemsen",
             "email": "christophe@graphaware.com"
         }
     ],
-    "require": {
-      "php": ">= 5.5",
-      "guzzlehttp/guzzle": "^6.0",
-      "monolog/monolog": "~1.1",
-      "symfony/yaml": "^2.7",
-      "symfony/config": "^2.7",
-      "symfony/dependency-injection": "^2.7",
-      "symfony/event-dispatcher": "^2.7",
+    "require":      {
+        "php":                                 "^5.5|^7.0",
+        "guzzlehttp/guzzle":                   "^6.0",
+        "monolog/monolog":                     "^1.1",
+        "symfony/yaml":                        "^2.7",
+        "symfony/config":                      "^2.7",
+        "symfony/dependency-injection":        "^2.7",
+        "symfony/event-dispatcher":            "^2.7",
         "graphaware/neo4j-response-formatter": "^1.0"
     },
-    "require-dev": {
-        "phpspec/phpspec": "~2.0",
-        "phpunit/phpunit": "4.*",
+    "require-dev":  {
+        "phpspec/phpspec":       "~2.0",
+        "phpunit/phpunit":       "4.*",
         "bossa/phpspec2-expect": "*",
-        "behat/behat": "~3.0"
-
+        "behat/behat":           "~3.0"
     },
-    "autoload": {
+    "autoload":     {
         "psr-4": {
             "Neoxygen\\NeoClient\\": "src/"
         }
@@ -46,7 +45,7 @@
             "Neoxygen\\NeoClient\\Tests\\": "tests/Neoxygen/NeoClient/Tests"
         }
     },
-    "extra": {
+    "extra":        {
         "branch-alias": {
             "dev-master": "3.1-dev"
         }
