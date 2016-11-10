@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * This file is part of the GraphAware Neo4j Client package.
  *
  * (c) GraphAware Limited <http://graphaware.com>
@@ -8,11 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace GraphAware\Neo4j\Client\HttpDriver;
 
+use GraphAware\Common\Cypher\Statement;
 use GraphAware\Common\Transaction\TransactionInterface;
 use GraphAware\Neo4j\Client\Exception\Neo4jException;
-use GraphAware\Common\Cypher\Statement;
 use GraphAware\Neo4j\Client\Exception\Neo4jExceptionInterface;
 
 class Transaction implements TransactionInterface
@@ -109,9 +110,8 @@ class Transaction implements TransactionInterface
     /**
      * {@inheritdoc}
      */
-    public function push($query, array $parameters = array(), $tag = null)
+    public function push($query, array $parameters = [], $tag = null)
     {
-        //
     }
 
     public function getStatus()
@@ -136,15 +136,15 @@ class Transaction implements TransactionInterface
     /**
      * @param Statement $statement
      *
-     * @return \GraphAware\Common\Result\RecordCursorInterface
-     *
      * @throws Neo4jException
+     *
+     * @return \GraphAware\Common\Result\RecordCursorInterface
      */
     public function run(Statement $statement)
     {
         $this->assertStarted();
         try {
-            $results = $this->session->pushToTransaction($this->transactionId, array($statement));
+            $results = $this->session->pushToTransaction($this->transactionId, [$statement]);
 
             return $results->results()[0];
         } catch (Neo4jException $e) {
@@ -160,9 +160,9 @@ class Transaction implements TransactionInterface
     /**
      * @param array $statements
      *
-     * @return \GraphAware\Common\Result\ResultCollection
-     *
      * @throws Neo4jException
+     *
+     * @return \GraphAware\Common\Result\ResultCollection
      */
     public function runMultiple(array $statements)
     {

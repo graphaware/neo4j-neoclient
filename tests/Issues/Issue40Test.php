@@ -1,12 +1,20 @@
 <?php
 
-namespace GraphAware\Neo4j\Client\Tests\Issues;
+/*
+ * This file is part of the GraphAware Neo4j Client package.
+ *
+ * (c) GraphAware Limited <http://graphaware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace GraphAware\Neo4j\Client\tests\Issues;
 
 use GraphAware\Neo4j\Client\Tests\Integration\IntegrationTestCase;
 
 /**
- * Class Issue40Test
- * @package GraphAware\Neo4j\Client\Tests\Issues
+ * Class Issue40Test.
  *
  * @group issues
  */
@@ -27,8 +35,8 @@ class Issue40Test extends IntegrationTestCase
             'brief_id' => 123,
             'data' => [
                 'key_1' => 'test',
-                'key_2' => 'other'
-            ]
+                'key_2' => 'other',
+            ],
         ];
 
         $this->client->run($query, $parameters);

@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the GraphAware Neo4j Client package.
+ *
+ * (c) GraphAware Limited <http://graphaware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace GraphAware\Neo4j\Client\HttpDriver;
 
 use GraphAware\Common\Driver\ConfigInterface;
@@ -29,16 +38,19 @@ class Configuration implements ConfigInterface
     public function withTimeout($timeout)
     {
         $this->timeout = $timeout;
+
         return $this;
     }
 
     /**
      * @param string $interface
+     *
      * @return $this
      */
     public function withCurlInterface($interface)
     {
         $this->curlInterface = $interface;
+
         return $this;
     }
 

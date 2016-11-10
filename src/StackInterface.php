@@ -1,10 +1,20 @@
-<?php namespace GraphAware\Neo4j\Client;
+<?php
+
+/*
+ * This file is part of the GraphAware Neo4j Client package.
+ *
+ * (c) GraphAware Limited <http://graphaware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace GraphAware\Neo4j\Client;
 
 use GraphAware\Common\Cypher\Statement;
 
 /**
- * Interface StackInterface
- * @package GraphAware\Neo4j\Client
+ * Interface StackInterface.
  */
 interface StackInterface
 {
@@ -17,7 +27,7 @@ interface StackInterface
     public static function create($tag = null, $connectionAlias = null);
 
     /**
-     * @param string $query
+     * @param string     $query
      * @param null|array $parameters
      * @param null|array $tag
      */

@@ -1,6 +1,15 @@
 <?php
 
-namespace GraphAware\Neo4j\Client\Tests\Integration;
+/*
+ * This file is part of the GraphAware Neo4j Client package.
+ *
+ * (c) GraphAware Limited <http://graphaware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace GraphAware\Neo4j\Client\tests\Integration;
 
 use GraphAware\Neo4j\Client\ClientBuilder;
 
@@ -11,7 +20,6 @@ class IntegrationTestCase extends \PHPUnit_Framework_TestCase
      */
     protected $client;
 
-
     public function setUp()
     {
         $this->client = ClientBuilder::create()
@@ -21,7 +29,7 @@ class IntegrationTestCase extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Empties the graph database
+     * Empties the graph database.
      *
      * @void
      */

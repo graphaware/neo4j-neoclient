@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * This file is part of the GraphAware Neo4j Client package.
  *
  * (c) GraphAware Limited <http://graphaware.com>
@@ -8,6 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace GraphAware\Neo4j\Client\HttpDriver;
 
 use GraphAware\Common\Driver\ConfigInterface;
@@ -62,9 +63,9 @@ class Session implements SessionInterface
     /**
      * {@inheritdoc}
      */
-    public function run($statement, array $parameters = array(), $tag = null)
+    public function run($statement, array $parameters = [], $tag = null)
     {
-        $parameters = is_array($parameters) ? $parameters : array();
+        $parameters = is_array($parameters) ? $parameters : [];
         $pipeline = $this->createPipeline($statement, $parameters, $tag);
         $response = $pipeline->run();
 
@@ -76,7 +77,6 @@ class Session implements SessionInterface
      */
     public function close()
     {
-        //
     }
 
     /**
@@ -98,7 +98,7 @@ class Session implements SessionInterface
      *
      * @return Pipeline
      */
-    public function createPipeline($query = null, array $parameters = array(), $tag = null)
+    public function createPipeline($query = null, array $parameters = [], $tag = null)
     {
         $pipeline = new Pipeline($this);
 
@@ -112,9 +112,9 @@ class Session implements SessionInterface
     /**
      * @param Pipeline $pipeline
      *
-     * @return \GraphAware\Common\Result\ResultCollection
-     *
      * @throws \GraphAware\Neo4j\Client\Exception\Neo4jException
+     *
+     * @return \GraphAware\Common\Result\ResultCollection
      */
     public function flush(Pipeline $pipeline)
     {
@@ -128,7 +128,6 @@ class Session implements SessionInterface
                 $exception->setNeo4jStatusCode($data['errors'][0]['code']);
 
                 throw $exception;
-
             }
             $results = $this->responseFormatter->format(json_decode($response->getBody(), true), $pipeline->statements());
 
@@ -199,9 +198,9 @@ class Session implements SessionInterface
     }
 
     /**
-     * @return \Psr\Http\Message\ResponseInterface
-     *
      * @throws Neo4jException
+     *
+     * @return \Psr\Http\Message\ResponseInterface
      */
     public function begin()
     {
@@ -230,9 +229,9 @@ class Session implements SessionInterface
      * @param int   $transactionId
      * @param array $statementsStack
      *
-     * @return \GraphAware\Common\Result\ResultCollection
-     *
      * @throws Neo4jException
+     *
+     * @return \GraphAware\Common\Result\ResultCollection
      */
     public function pushToTransaction($transactionId, array $statementsStack)
     {
@@ -271,8 +270,8 @@ class Session implements SessionInterface
                 $exception->setNeo4jStatusCode($data['errors'][0]['code']);
 
                 throw $exception;
-
             }
+
             return $this->responseFormatter->format(json_decode($response->getBody(), true), $statementsStack);
         } catch (RequestException $e) {
             if ($e->hasResponse()) {
@@ -307,7 +306,6 @@ class Session implements SessionInterface
                 $exception = new Neo4jException($msg);
                 $exception->setNeo4jStatusCode($data['errors'][0]['code']);
                 throw $exception;
-
             }
         } catch (RequestException $e) {
             if ($e->hasResponse()) {

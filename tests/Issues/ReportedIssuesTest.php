@@ -1,15 +1,23 @@
 <?php
 
-namespace GraphAware\Neo4j\Client\Tests\Issues;
+/*
+ * This file is part of the GraphAware Neo4j Client package.
+ *
+ * (c) GraphAware Limited <http://graphaware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
-use GraphAware\Neo4j\Client\Tests\Integration\IntegrationTestCase;
+namespace GraphAware\Neo4j\Client\tests\Issues;
+
 use GraphAware\Neo4j\Client\Exception\Neo4jException;
+use GraphAware\Neo4j\Client\Tests\Integration\IntegrationTestCase;
 use Symfony\Component\Yaml\Exception\RuntimeException;
 
 class ReportedIssuesTest extends IntegrationTestCase
 {
     /**
-     *
      * @group issue-so-2
      */
     public function testTryingToDeleteNodeWithRelsInTransactionShouldFail()
@@ -23,7 +31,6 @@ class ReportedIssuesTest extends IntegrationTestCase
     }
 
     /**
-     *
      * @group issue-so-3
      */
     public function testTryingToDeleteNodeWithRelsInTransactionShouldFailAndTxBeRolledBack()

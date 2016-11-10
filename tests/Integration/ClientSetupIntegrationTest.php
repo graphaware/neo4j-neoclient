@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * This file is part of the GraphAware Neo4j Client package.
  *
  * (c) GraphAware Limited <http://graphaware.com>
@@ -9,20 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Neo4j\Client\Tests\Integration;
+namespace GraphAware\Neo4j\Client\tests\Integration;
 
+use GraphAware\Bolt\Driver as BoltDriver;
 use GraphAware\Neo4j\Client\Client;
 use GraphAware\Neo4j\Client\ClientBuilder;
 use GraphAware\Neo4j\Client\Connection\Connection;
-use GraphAware\Neo4j\Client\HttpDriver\Driver as HttpDriver;
-use GraphAware\Bolt\Driver as BoltDriver;
-use \InvalidArgumentException;
 use GraphAware\Neo4j\Client\Connection\ConnectionManager;
-use Prophecy\Prophet;
+use GraphAware\Neo4j\Client\HttpDriver\Driver as HttpDriver;
+use InvalidArgumentException;
 
 /**
- * Class ClientSetupIntegrationTest
- * @package GraphAware\Neo4j\Client\Tests\Integration
+ * Class ClientSetupIntegrationTest.
  *
  * @group setup
  */
@@ -79,17 +77,17 @@ class ClientSetupIntegrationTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($client->getConnectionManager()->getMasterConnection());
     }
 
-   public function testICanDefineConnectionAsWriteOrRead()
-   {
-       $client = ClientBuilder::create()
+    public function testICanDefineConnectionAsWriteOrRead()
+    {
+        $client = ClientBuilder::create()
            ->addConnection('default', 'http://localhost:7474')
            ->addConnection('conn2', 'http://localhost:7575')
            ->addConnection('conn3', 'http://localhost:7676')
            ->setMaster('conn2')
            ->build();
 
-       $this->assertEquals('conn2', $client->getConnectionManager()->getMasterConnection()->getAlias());
-   }
+        $this->assertEquals('conn2', $client->getConnectionManager()->getMasterConnection()->getAlias());
+    }
 
     public function testSecondIsMasterCallOverridesPreviousOne()
     {

@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * This file is part of the GraphAware Neo4j Client package.
  *
  * (c) GraphAware Limited <http://graphaware.com>
@@ -8,6 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace GraphAware\Neo4j\Client;
 
 use GraphAware\Common\Driver\ConfigInterface;
@@ -32,7 +33,7 @@ class ClientBuilder
     {
         $this->config['connection_manager']['preflight_env'] = self::PREFLIGHT_ENV_DEFAULT;
         $this->config['client_class'] = \GraphAware\Neo4j\Client\Client::class;
-        if(!empty($config)){
+        if (!empty($config)) {
             $this->config = array_merge($this->config, $config);
         }
     }

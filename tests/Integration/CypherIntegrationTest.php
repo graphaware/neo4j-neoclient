@@ -1,13 +1,22 @@
 <?php
 
-namespace GraphAware\Neo4j\Client\Tests\Integration;
+/*
+ * This file is part of the GraphAware Neo4j Client package.
+ *
+ * (c) GraphAware Limited <http://graphaware.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace GraphAware\Neo4j\Client\tests\Integration;
 
 use GraphAware\Bolt\Result\Type\Node as BoltNode;
+use GraphAware\Bolt\Result\Type\Relationship as BoltRelationship;
 use GraphAware\Common\Type\Node;
+use GraphAware\Common\Type\Path;
 use GraphAware\Neo4j\Client\Formatter\Type\Node as HttpNode;
 use GraphAware\Neo4j\Client\Formatter\Type\Relationship as HttpRelationship;
-use GraphAware\Bolt\Result\Type\Relationship as BoltRelationship;
-use GraphAware\Common\Type\Path;
 
 class CypherIntegrationTest extends IntegrationTestCase
 {

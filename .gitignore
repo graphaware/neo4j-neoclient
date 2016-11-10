@@ -1,8 +1,9 @@
-vendor/
-test.php
+.php_cs.cache
 bin/*
+cache/
+composer.lock
+neoclient.yml
+test.php
 tests/_reports
 tests/database_settings.yml
-cache/
-neoclient.yml
-composer.lock
+vendor/

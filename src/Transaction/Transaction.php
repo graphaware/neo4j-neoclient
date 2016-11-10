@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * This file is part of the GraphAware Neo4j Client package.
  *
  * (c) GraphAware Limited <http://graphaware.com>
@@ -8,6 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace GraphAware\Neo4j\Client\Transaction;
 
 use GraphAware\Common\Cypher\Statement;
@@ -41,7 +42,7 @@ class Transaction
      * @param array       $parameters
      * @param string|null $tag
      */
-    public function push($statement, array $parameters = array(), $tag = null)
+    public function push($statement, array $parameters = [], $tag = null)
     {
         $this->queue[] = Statement::create($statement, $parameters, $tag);
     }
@@ -53,9 +54,9 @@ class Transaction
      *
      * @return \GraphAware\Common\Result\Result
      */
-    public function run($statement, array $parameters = array(), $tag = null)
+    public function run($statement, array $parameters = [], $tag = null)
     {
-        if (!$this->driverTransaction->isOpen() && !in_array($this->driverTransaction->status(), ['COMMITED', 'ROLLED_BACK'])) {
+        if (!$this->driverTransaction->isOpen() && !in_array($this->driverTransaction->status(), ['COMMITED', 'ROLLED_BACK'], true)) {
             $this->driverTransaction->begin();
         }
 
@@ -79,7 +80,7 @@ class Transaction
      */
     public function runStack(StackInterface $stack)
     {
-        if (!$this->driverTransaction->isOpen() && !in_array($this->driverTransaction->status(), ['COMMITED', 'ROLLED_BACK'])) {
+        if (!$this->driverTransaction->isOpen() && !in_array($this->driverTransaction->status(), ['COMMITED', 'ROLLED_BACK'], true)) {
             $this->driverTransaction->begin();
         }
 
@@ -134,7 +135,7 @@ class Transaction
      */
     public function commit()
     {
-        if (!$this->driverTransaction->isOpen() && !in_array($this->driverTransaction->status(), ['COMMITED', 'ROLLED_BACK'])) {
+        if (!$this->driverTransaction->isOpen() && !in_array($this->driverTransaction->status(), ['COMMITED', 'ROLLED_BACK'], true)) {
             $this->driverTransaction->begin();
         }
         if (!empty($this->queue)) {

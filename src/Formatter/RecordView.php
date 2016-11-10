@@ -3,7 +3,7 @@
 /*
  * This file is part of the GraphAware Neo4j Client package.
  *
- * (c) Graph Aware Limited <http://graphaware.com>
+ * (c) GraphAware Limited <http://graphaware.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -78,9 +78,9 @@ class RecordView implements RecordViewInterface
      *
      * @param string $key
      *
-     * @return \GraphAware\Neo4j\Client\Formatter\Type\Node
-     *
      * @throws \InvalidArgumentException When the value is not null or instance of Node
+     *
+     * @return \GraphAware\Neo4j\Client\Formatter\Type\Node
      */
     public function nodeValue($key)
     {
@@ -94,9 +94,9 @@ class RecordView implements RecordViewInterface
     /**
      * @param string $key
      *
-     * @return \GraphAware\Neo4j\Client\Formatter\Type\Relationship
-     *
      * @throws \InvalidArgumentException When the value is not null or instance of Relationship
+     *
+     * @return \GraphAware\Neo4j\Client\Formatter\Type\Relationship
      */
     public function relationshipValue($key)
     {

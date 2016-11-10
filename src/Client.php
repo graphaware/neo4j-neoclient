@@ -1,6 +1,6 @@
 <?php
 
-/**
+/*
  * This file is part of the GraphAware Neo4j Client package.
  *
  * (c) GraphAware Limited <http://graphaware.com>
@@ -8,6 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace GraphAware\Neo4j\Client;
 
 use GraphAware\Common\Cypher\Statement;
@@ -52,16 +53,16 @@ class Client implements ClientInterface
      * @param null|string $tag
      * @param null|string $connectionAlias
      *
-     * @return \GraphAware\Common\Result\Result
-     *
      * @throws \GraphAware\Neo4j\Client\Exception\Neo4jExceptionInterface
+     *
+     * @return \GraphAware\Common\Result\Result
      */
     public function run($query, $parameters = null, $tag = null, $connectionAlias = null)
     {
         $connection = $this->connectionManager->getConnection($connectionAlias);
-        $params = null !== $parameters ? $parameters : array();
+        $params = null !== $parameters ? $parameters : [];
         $statement = Statement::create($query, $params, $tag);
-        $this->eventDispatcher->dispatch(Neo4jClientEvents::NEO4J_PRE_RUN, new PreRunEvent(array($statement)));
+        $this->eventDispatcher->dispatch(Neo4jClientEvents::NEO4J_PRE_RUN, new PreRunEvent([$statement]));
 
         try {
             $result = $connection->run($query, $parameters, $tag);
@@ -85,9 +86,9 @@ class Client implements ClientInterface
      * @param null|array  $parameters
      * @param null|string $tag
      *
-     * @return AbstractRecordCursor
-     *
      * @throws Neo4jException
+     *
+     * @return AbstractRecordCursor
      */
     public function runWrite($query, $parameters = null, $tag = null)
     {
@@ -97,15 +98,15 @@ class Client implements ClientInterface
     }
 
     /**
-     * @deprecated since 4.0 - will be removed in 5.0 - use <code>$client->runWrite()</code> instead.
+     * @deprecated since 4.0 - will be removed in 5.0 - use <code>$client->runWrite()</code> instead
      *
      * @param string      $query
      * @param null|array  $parameters
      * @param null|string $tag
      *
-     * @return AbstractRecordCursor
-     *
      * @throws Neo4jException
+     *
+     * @return AbstractRecordCursor
      */
     public function sendWriteQuery($query, $parameters = null, $tag = null)
     {
@@ -126,9 +127,9 @@ class Client implements ClientInterface
     /**
      * @param Stack $stack
      *
-     * @return ResultCollection|null
-     *
      * @throws Neo4jException
+     *
+     * @return ResultCollection|null
      */
     public function runStack(StackInterface $stack)
     {
@@ -187,20 +188,21 @@ class Client implements ClientInterface
 
     /**
      * @param string|null $conn
+     *
      * @return Label[]
      */
     public function getLabels($conn = null)
     {
         $connection = $this->connectionManager->getConnection($conn);
-        $result = $connection->getSession()->run("CALL db.labels()");
+        $result = $connection->getSession()->run('CALL db.labels()');
 
-        return array_map(function(Record $record) {
+        return array_map(function (Record $record) {
             return new Label($record->get('label'));
         }, $result->records());
     }
 
     /**
-     * @deprecated since 4.0 - will be removed in 5.0 - use <code>$client->run()</code> instead.
+     * @deprecated since 4.0 - will be removed in 5.0 - use <code>$client->run()</code> instead
      *
      * @param string      $query
      * @param null|array  $parameters
