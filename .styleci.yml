@@ -1,0 +1,9 @@
+preset: symfony
+
+finder:
+    exclude:
+        - "build"
+        - "vendor"
+
+enabled:
+    - short_array_syntax
