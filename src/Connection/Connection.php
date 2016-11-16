@@ -166,7 +166,7 @@ class Connection
 
         if (preg_match('/bolt/', $this->uri)) {
             if (!class_exists(BoltDriver::class)) {
-                throw new \RuntimeException(sprintf('Bolt support is not available."));
+                throw new \RuntimeException(sprintf("Bolt support is not available."));
             }
             $port = isset($params['port']) ? (int) $params['port'] : BoltDriver::DEFAULT_TCP_PORT;
             $uri = sprintf('%s://%s:%d', $params['scheme'], $params['host'], $port);
