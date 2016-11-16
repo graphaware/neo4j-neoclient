@@ -21,13 +21,15 @@
         }
     ],
     "require": {
-      "php": ">= 5.6",
+      "php": ">= 5.5",
       "ext-bcmath": "*",
       "ext-mbstring": "*",
-      "graphaware/neo4j-bolt": "^1.5",
       "guzzlehttp/guzzle": "^6.0",
       "symfony/event-dispatcher": "^2.7|^3.0",
       "myclabs/php-enum": "^1.4"
+    },
+    "suggest": {
+      "graphaware/neo4j-bolt": "^1.5",
     },
     "require-dev": {
         "phpunit/phpunit": "4.*",
