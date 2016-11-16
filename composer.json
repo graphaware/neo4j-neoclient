@@ -29,7 +29,7 @@
       "myclabs/php-enum": "^1.4"
     },
     "suggest": {
-      "graphaware/neo4j-bolt": "^1.5",
+      "graphaware/neo4j-bolt": "^1.5"
     },
     "require-dev": {
         "phpunit/phpunit": "4.*",
