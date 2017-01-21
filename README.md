@@ -18,7 +18,7 @@ Neo4j is a transactional, open-source graph database. A graph database manages d
 ### Key features
 
 * Supports multiple connections
-* Support for Bolt binary protocol
+* Support for Bolt binary protocol (PHP >= 5.6)
 * Built-in and automatic support for *Neo4j Enterprise HA Master-Slave Mode* with auto slaves fallback
 
 #### Neo4j Version Support
@@ -44,7 +44,7 @@ Neo4j is a transactional, open-source graph database. A graph database manages d
 
 ### Requirements
 
-* PHP >= 5.6
+* PHP >= 5.5 (>= 5.6 for `bolt` support)
 * ext-bcmath
 * ext-mbstring
 * A Neo4j database (minimum version 2.2.6)
@@ -85,7 +85,7 @@ $client = ClientBuilder::create()
     ->build();
 ```
 
-You're now ready to connect to your database.
+You're now ready to connect to your database.  **NOTE** Support for the `bolt` protocol is only available if running PHP version 5.6 or newer.
 
 NB: The build method will process configuration settings and return you a `Client` instance.
 
