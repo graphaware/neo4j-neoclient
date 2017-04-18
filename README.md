@@ -1,4 +1,4 @@
-# GraphAware Neo4j PHP Client
+# GraphAware Neo4j PHP Client V4
 
 ## An Enterprise Grade Client for Neo4j
 
