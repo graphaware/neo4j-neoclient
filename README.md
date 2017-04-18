@@ -186,7 +186,7 @@ The `ResultSummary` contains the `Statement`, the Statistics and the QueryPlan i
 ```php
 $summary = $result->summarize();
 
-$query = $summary->statement()->text();
+$query = $summary->satement()->text();
 
 $stats = $summary->updateStatistics();
 
