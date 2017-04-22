@@ -193,6 +193,7 @@ class Session implements SessionInterface
         $body = json_encode([
             'statements' => $statements,
         ]);
+
         $headers = [
             [
                 'X-Stream' => true,
@@ -205,16 +206,6 @@ class Session implements SessionInterface
 
     private function formatParams(array $params)
     {
-        foreach ($params as $key => $v) {
-            if (is_array($v)) {
-                if (empty($v)) {
-                    $params[$key] = new \stdClass();
-                } else {
-                    $params[$key] = $this->formatParams($params[$key]);
-                }
-            }
-        }
-
         return $params;
     }
 
