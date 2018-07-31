@@ -80,8 +80,8 @@ require_once 'vendor/autoload.php';
 use GraphAware\Neo4j\Client\ClientBuilder;
 
 $client = ClientBuilder::create()
-    ->addConnection('default', 'http://neo4j:password@localhost:7474') // Example for HTTP connection configuration (port is optional)
-    ->addConnection('bolt', 'bolt://neo4j:password@localhost:7687') // Example for BOLT connection configuration (port is optional)
+    ->addConnection('default', 'http://neo4j:password@127.0.0.1:7474') // Example for HTTP connection configuration (port is optional)
+    ->addConnection('bolt', 'bolt://neo4j:password@127.0.0.1:7687') // Example for BOLT connection configuration (port is optional)
     ->build();
 ```
 
@@ -455,7 +455,7 @@ Example :
 
 ```php
 $client = ClientBuilder::create()
-    ->addConnection('default', 'bolt://localhost')
+    ->addConnection('default', 'bolt://127.0.0.1')
     ->registerEventListener(Neo4jClientEvents::NEO4J_PRE_RUN, array($listener, 'onPreRun')
     ->build();
 ```
@@ -470,7 +470,7 @@ You can configure a global timeout for the connections :
 
 ```php
 $client = ClientBuilder::create()
-    ->addConnection('default', 'http://localhost:7474')
+    ->addConnection('default', 'http://127.0.0.1:7474')
     ->setDefaultTimeout(3)
     ->build();
 ```
@@ -513,7 +513,7 @@ $httpClient = new Client(null, null, $options);
 
 $config = \GraphAware\Neo4j\Client\HttpDriver\Configuration::create($httpClient);
 $client = ClientBuilder::create()
-    ->addConnection('default', 'http://neo4j:password@localhost:7474', $config)
+    ->addConnection('default', 'http://neo4j:password@127.0.0.1:7474', $config)
     ->build();
 ```
 
