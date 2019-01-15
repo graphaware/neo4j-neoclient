@@ -64,6 +64,7 @@ class RecordView implements RecordViewInterface
     }
 
     /**
+     * @deprecated Use <code>get()</code> instead
      * @param string $key
      *
      * @return \GraphAware\Neo4j\Client\Formatter\Type\Node|\GraphAware\Neo4j\Client\Formatter\Type\Relationship

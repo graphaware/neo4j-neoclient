@@ -26,6 +26,9 @@ class ResultSummary implements ResultSummaryInterface
      */
     protected $updateStatistics;
 
+    /**
+     * @var array
+     */
     protected $notifications;
 
     protected $type;

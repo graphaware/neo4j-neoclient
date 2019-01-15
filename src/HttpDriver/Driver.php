@@ -36,10 +36,6 @@ class Driver implements DriverInterface
      */
     public function __construct($uri, ConfigInterface $config = null)
     {
-        if (null !== $config && !$config instanceof BaseConfiguration) {
-            throw new \RuntimeException(sprintf('Second argument to "%s" must be null or "%s"', __CLASS__, BaseConfiguration::class));
-        }
-
         $this->uri = $uri;
         $this->config = null !== $config ? $config : Configuration::create();
     }

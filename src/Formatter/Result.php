@@ -13,7 +13,6 @@ namespace GraphAware\Neo4j\Client\Formatter;
 
 use GraphAware\Common\Cypher\StatementInterface;
 use GraphAware\Common\Result\AbstractRecordCursor;
-use GraphAware\Common\Result\Record;
 use GraphAware\Neo4j\Client\Formatter\Type\Node;
 use GraphAware\Neo4j\Client\Formatter\Type\Path;
 use GraphAware\Neo4j\Client\Formatter\Type\Relationship;
@@ -22,11 +21,6 @@ use GraphAware\Neo4j\Client\HttpDriver\Result\StatementStatistics;
 
 class Result extends AbstractRecordCursor
 {
-    /**
-     * @var RecordView[]
-     */
-    protected $records = [];
-
     /**
      * @var string[]
      */
@@ -103,10 +97,10 @@ class Result extends AbstractRecordCursor
     }
 
     /**
-     * @param $data
-     * @param $graph
+     * @param array $data
+     * @param array $graph
      */
-    public function pushRecord($data, $graph)
+    public function pushRecord(array $data, array $graph)
     {
         $mapped = $this->array_map_deep($data, $graph);
         $this->records[] = new RecordView($this->fields, $mapped);
