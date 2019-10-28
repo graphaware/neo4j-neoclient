@@ -21,7 +21,7 @@
         }
     ],
     "require": {
-      "php": "^5.6 || ^7.0",
+      "php": "^7.0",
       "ext-bcmath": "*",
       "ext-mbstring": "*",
       "graphaware/neo4j-common": "^3.4",
@@ -34,7 +34,7 @@
       "php-http/discovery": "^1.0",
 
       "php-http/message": "^1.0",
-      "php-http/guzzle6-adapter": "^1.0"
+      "php-http/guzzle6-adapter": "^2.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.0",
