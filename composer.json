@@ -32,8 +32,7 @@
       "php-http/message-factory": "^2.0",
       "php-http/client-common": "^2.0",
       "php-http/discovery": "^2.0",
-
-      "php-http/message": "^2.0",
+      "php-http/message": "^1.0",
       "php-http/guzzle6-adapter": "^2.0"
     },
     "require-dev": {
