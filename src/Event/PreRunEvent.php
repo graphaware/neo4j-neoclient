@@ -12,7 +12,7 @@
 namespace GraphAware\Neo4j\Client\Event;
 
 use GraphAware\Common\Cypher\StatementInterface;
-use Symfony\Component\EventDispatcher\Event;
+use Symfony\Contracts\EventDispatcher\Event;
 
 class PreRunEvent extends Event
 {
