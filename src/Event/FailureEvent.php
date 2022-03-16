@@ -12,7 +12,7 @@
 namespace GraphAware\Neo4j\Client\Event;
 
 use GraphAware\Neo4j\Client\Exception\Neo4jExceptionInterface;
-use Symfony\Component\EventDispatcher\Event;
+use Symfony\Contracts\EventDispatcher\Event;
 
 class FailureEvent extends Event
 {
