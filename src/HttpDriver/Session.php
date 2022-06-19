@@ -191,10 +191,8 @@ class Session implements SessionInterface
             'statements' => $statements,
         ]);
         $headers = [
-            [
-                'X-Stream' => true,
-                'Content-Type' => 'application/json',
-            ],
+            'X-Stream' => true,
+            'Content-Type' => 'application/json',
         ];
 
         return $this->requestFactory->createRequest('POST', sprintf('%s/db/data/transaction/commit', $this->uri), $headers, $body);
