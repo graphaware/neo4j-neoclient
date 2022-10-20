@@ -25,9 +25,9 @@ class Issue40Test extends IntegrationTestCase
         $this->emptyDb();
         $this->client->run('CREATE (:BRIEF {id: 123})');
 
-        $query = 'MATCH (s:BRIEF {id:{brief_id}})
+        $query = 'MATCH (s:BRIEF {id: $brief_id})
     CREATE (n:BRIEFNOTECARD)
-    SET n += {data}
+    SET n += $data
     CREATE (n)-[:CARD_OF {order:0}]->(s)
     RETURN n';
 

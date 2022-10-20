@@ -8,3 +8,4 @@ tests/_reports
 tests/database_settings.yml
 vendor/
 phpunit.xml
+.idea
