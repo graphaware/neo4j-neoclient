@@ -41,7 +41,7 @@ interface StackInterface
     public function pushWrite($query, $parameters = null, $tag = null);
 
     /**
-     * @param $query
+     * @param string     $query
      * @param array|null $parameters
      * @param array|null $tag
      */

@@ -41,12 +41,14 @@ class Stack implements StackInterface
     protected $hasWrites = false;
 
     /**
-     * @param null        $tag
+     * @param null|string $tag
      * @param null|string $connectionAlias
      */
     public function __construct($tag = null, $connectionAlias = null)
     {
-        $this->tag = null !== $tag ? (string) $tag : null;
+	if (null !== $tag) {
+            $this->tag = (string)$tag;
+        }
         $this->connectionAlias = $connectionAlias;
     }
 
@@ -85,7 +87,7 @@ class Stack implements StackInterface
     }
 
     /**
-     * @param $query
+     * @param string $query
      * @param array|null $parameters
      * @param array|null $tag
      */

@@ -174,7 +174,7 @@ class Connection
             $port = isset($params['port']) ? (int) $params['port'] : BoltDriver::DEFAULT_TCP_PORT;
             $uri = sprintf('%s://%s:%d', $params['scheme'], $params['host'], $port);
             $config = null;
-            if (isset($params['user']) && isset($params['pass'])) {
+            if (isset($params['user'], $params['pass'])) {
                 $config = BoltConfiguration::create()->withCredentials($params['user'], $params['pass']);
             }
             $this->driver = BoltGraphDB::driver($uri, $config);

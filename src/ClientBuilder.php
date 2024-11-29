@@ -88,7 +88,7 @@ class ClientBuilder
         $this->config['connections'][$alias]['uri'] = $uri;
 
         if (null !== $config) {
-            if ($this->config['connections'][$alias]['config'] = $config);
+            $this->config['connections'][$alias]['config'] = $config;
         }
 
         return $this;

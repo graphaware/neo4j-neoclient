@@ -36,6 +36,8 @@ class Configuration extends BaseConfiguration implements ConfigInterface
     protected $curlInterface;
 
     /**
+     * @param HttpClient|null $httpClient
+     * @param RequestFactory|null $requestFactory
      * @return Configuration
      */
     public static function create(HttpClient $httpClient = null, RequestFactory $requestFactory = null)

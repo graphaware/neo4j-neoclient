@@ -192,7 +192,7 @@ class StatementStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @param $key
+     * @param string $key
      *
      * @return string
      */
